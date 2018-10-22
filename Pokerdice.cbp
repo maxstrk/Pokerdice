@@ -21,6 +21,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="maxstring.cpp" />
+		<Unit filename="maxstring.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
