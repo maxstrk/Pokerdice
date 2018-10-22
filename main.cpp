@@ -1,20 +1,21 @@
 #include <iostream>
 #include "maxstring.h"
-#include <ctime>
-#include <cstdlib>
+#include "player.h"
+
 using namespace std;
 
 
-int dice_roll(void);
+
 
 int main()
 {
     srand(time(0));
-    String str="Hello world!";
-    str.show();
+    Player first;
+    Player second;
+    first.roll();
+    second.roll();
+    first.showhand();
+    second.showhand();
+
     return 0;
-}
-int dice_roll(void)
-{
-    return rand()%6+1;
 }
