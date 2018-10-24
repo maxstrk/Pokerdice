@@ -22,8 +22,8 @@ int main()
             cout << "     You roll: ";
             first.roll();
             check_hand(first);
-            first.showcombination();
             first.showhand();
+            first.tell_combination();
             cout << "Opponent roll: ";
             second.roll();
             check_hand(second);
@@ -39,6 +39,10 @@ int main()
                     second.showhand();
                     second.showcombination();
                     second.tell_combination();
+                    int a=compare_players(first,second);
+                    if (a==1) cout<< " You win!\n";
+                    else if (a==-1) cout << " You lose!\n";
+                    else if (a==0) cout << " Draw!\n";
                 }
             }
         }
