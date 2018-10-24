@@ -21,9 +21,13 @@ class Player
 {
     int points[5];//цифри на кожному кубику
     Combination_pair combination;
+    long cash;
 public:
     Player();
+    long& getcash(){return cash;}
+    void showcash(){ std::cout << cash << std::endl;}
     void roll(void);
+    void reroll(int a,int b=0,int c=0,int d=0,int e=0);
     void showhand(void) const;
     void showcombination(void)const;
     void tell_combination(void)const;
@@ -34,3 +38,6 @@ public:
 
 
 #endif // PLAYER_H_
+
+/*class maxstring fixed, added reroll func, added table class, test version is playable
+*/

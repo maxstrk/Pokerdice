@@ -19,6 +19,7 @@ String & String::operator=(const String & st)
 }
 bool String::operator==(const char * s)
 {
+    if(this->length()!=strlen(s)) return false;
     for (int i=0; i < strlen(s); i++) if (str[i]!=s[i]) return false;
     return true;
 }

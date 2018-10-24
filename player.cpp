@@ -8,6 +8,7 @@ Player::Player()
     combination.kiker=0;
     combination.kiker2=0;
     combination.kiker3=0;
+    cash=100;
     points[0]=6;
     points[1]=4;
     points[2]=3;
@@ -18,9 +19,20 @@ void Player::roll(void)//кидок кубиків
 {
     for(int i=0; i < 5; i++) points[i]=dice_roll();
 }
+void Player::reroll(int a,int b,int c,int d,int e)
+{
+    for(int i=0; i < 5; i++)
+    {
+        if(a==i+1) points[i]=dice_roll();
+        if(b==i+1) points[i]=dice_roll();
+        if(c==i+1) points[i]=dice_roll();
+        if(d==i+1) points[i]=dice_roll();
+        if(e==i+1) points[i]=dice_roll();
+    }
+}
 void Player::showhand(void) const
 {
-    for(int i=0; i < 5; i++) std::cout << points[i] << " ";
+    for(int i=0; i < 5; i++) std::cout << points[i] << "  ";
     std::cout << std::endl;
 }
 void Player::showcombination(void)const
@@ -179,46 +191,58 @@ int compare_players(Player &p1, Player&p2)
 {
     bool find=false;
     if(!find)
-    if(p1.combination.prob == p2.combination.prob) find=false;
+    {
+        if(p1.combination.prob == p2.combination.prob) find=false;
     else
     {
         find=true;
         if(p1.combination.prob > p2.combination.prob) return 1; else return -1;
     }
+    }
     if (!find)
-    if(p1.combination.points1 == p2.combination.points1) find=false;
+    {
+        if(p1.combination.points1 == p2.combination.points1) find=false;
     else
     {
         find=true;
         if(p1.combination.points1 > p2.combination.points1) return 1; else return -1;
     }
+    }
     if (!find)
-    if(p1.combination.points2 == p2.combination.points2) find=false;
+    {
+        if(p1.combination.points2 == p2.combination.points2) find=false;
     else
     {
         find=true;
         if(p1.combination.points2 > p2.combination.points2) return 1; else return -1;
     }
+    }
     if (!find)
-    if(p1.combination.kiker == p2.combination.kiker) find=false;
+    {
+        if(p1.combination.kiker == p2.combination.kiker) find=false;
     else
     {
         find=true;
         if(p1.combination.kiker > p2.combination.kiker) return 1; else return -1;
     }
+    }
     if (!find)
-    if(p1.combination.kiker2 == p2.combination.kiker2) find=false;
+    {
+        if(p1.combination.kiker2 == p2.combination.kiker2) find=false;
     else
     {
         find=true;
         if(p1.combination.kiker2 > p2.combination.kiker2) return 1; else return -1;
     }
+    }
     if (!find)
-    if(p1.combination.kiker3 == p2.combination.kiker3) find=false;
+    {
+        if(p1.combination.kiker3 == p2.combination.kiker3) find=false;
     else
     {
         find=true;
         if(p1.combination.kiker3 > p2.combination.kiker3) return 1; else return -1;
+    }
     }
     if (!find) return 0;
 }

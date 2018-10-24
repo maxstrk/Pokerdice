@@ -25,6 +25,8 @@
 		<Unit filename="maxstring.h" />
 		<Unit filename="player.cpp" />
 		<Unit filename="player.h" />
+		<Unit filename="table.cpp" />
+		<Unit filename="table.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

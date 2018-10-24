@@ -1,21 +1,26 @@
 # depslib dependency file v1.0
-1540198453 source:d:\mm\projectpack\games\pokerdice\maxstring.cpp
+1540404265 source:d:\mm\projectpack\games\pokerdice\maxstring.cpp
 	<iostream>
 	"maxstring.h"
 
 1540198473 d:\mm\projectpack\games\pokerdice\maxstring.h
 	<iostream>
 
-1540385779 source:d:\mm\projectpack\games\pokerdice\main.cpp
+1540409096 source:d:\mm\projectpack\games\pokerdice\main.cpp
 	<iostream>
 	"maxstring.h"
-	"player.h"
+	"table.h"
 
-1540388138 d:\mm\projectpack\games\pokerdice\player.h
+1540409268 d:\mm\projectpack\games\pokerdice\player.h
 	<iostream>
 	<ctime>
 	<cstdlib>
 
-1540387659 source:d:\mm\projectpack\games\pokerdice\player.cpp
+1540406430 source:d:\mm\projectpack\games\pokerdice\player.cpp
+	"player.h"
+
+1540404451 source:d:\mm\projectpack\games\pokerdice\table.cpp
+
+1540408663 d:\mm\projectpack\games\pokerdice\table.h
 	"player.h"
 
