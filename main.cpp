@@ -20,9 +20,10 @@ int main()
         else if (command=="start")
         {
             cout << "     You roll: ";
-            first.roll();
+            //first.roll();
             check_hand(first);
             first.showhand();
+            first.showcombination();
             first.tell_combination();
             cout << "Opponent roll: ";
             second.roll();

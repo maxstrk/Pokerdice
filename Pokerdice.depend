@@ -6,16 +6,16 @@
 1540198473 d:\mm\projectpack\games\pokerdice\maxstring.h
 	<iostream>
 
-1540382515 source:d:\mm\projectpack\games\pokerdice\main.cpp
+1540385779 source:d:\mm\projectpack\games\pokerdice\main.cpp
 	<iostream>
 	"maxstring.h"
 	"player.h"
 
-1540380487 d:\mm\projectpack\games\pokerdice\player.h
+1540388138 d:\mm\projectpack\games\pokerdice\player.h
 	<iostream>
 	<ctime>
 	<cstdlib>
 
-1540382561 source:d:\mm\projectpack\games\pokerdice\player.cpp
+1540387659 source:d:\mm\projectpack\games\pokerdice\player.cpp
 	"player.h"
 

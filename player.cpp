@@ -6,11 +6,13 @@ Player::Player()
     combination.points1=0;
     combination.points2=0;
     combination.kiker=0;
-    //points[0]=4;
-    //points[1]=1;
-    //points[2]=4;
-    //points[3]=2;
-    //points[4]=5;
+    combination.kiker2=0;
+    combination.kiker3=0;
+    points[0]=6;
+    points[1]=4;
+    points[2]=3;
+    points[3]=5;
+    points[4]=1;
 };
 void Player::roll(void)//кидок кубиків
 {
@@ -28,6 +30,8 @@ void Player::showcombination(void)const
     cout << combination.points1 << " ";
     cout << combination.points2 << " ";
     cout << combination.kiker << " ";
+    cout << combination.kiker2 << " ";
+    cout << combination.kiker3 << " ";
 }
 void Player::tell_combination(void)const
 {
@@ -55,6 +59,8 @@ void check_hand(Player & p)
     p.combination.points1=0;
     p.combination.points2=0;
     p.combination.kiker=0;
+    p.combination.kiker2=0;
+    p.combination.kiker3=0;
     int arr[6]={0};
     for (int i=0; i < 5; i++)//перевірка к-сті випадань кожної цифри
         switch(p.points[i])
@@ -67,7 +73,7 @@ void check_hand(Player & p)
         case 6: arr[5]++; break;
     }
     bool find=false; // потрібна для перевірки, чи знайдена якась комбінація
-    for (int i=0; i <6; i++)
+    for (int i=0; i <6; i++)//Перевірка нав п'ятірку однакових
         if (arr[i]==5)
     {
         p.combination.prob=8;
@@ -123,12 +129,15 @@ void check_hand(Player & p)
             if (three && !pairs) // перевірка на трійку
             {
                 p.combination.prob=3;
-                if (arr[5]==1) p.combination.kiker=6; //присвоєння кікеру найбільшого числа з очок які не входять в комбінацію
-                else if (arr[4]==1) p.combination.kiker=5;
-                else if (arr[3]==1) p.combination.kiker=4;
-                else if (arr[2]==1) p.combination.kiker=3;
-                else if (arr[1]==1) p.combination.kiker=2;
-                else if (arr[0]==1) p.combination.kiker=1;
+                int as=0;//потрібно для збереження інформації про значення двох кікерів
+                int bs=0;
+                for (int i=5; i >= 0; i--)//реверс цикл
+                {
+                    if (arr[i]==1 && as==0) as=i+1;
+                    if (arr[i]==1 && bs==0 && as!=i+1) bs=i+1;
+                }
+                p.combination.kiker=as;
+                p.combination.kiker2=bs;
                 find=true;
             }
 
@@ -143,29 +152,33 @@ void check_hand(Player & p)
             if (pairs==1 && !three) // перевірка на одну пару
             {
                 p.combination.prob=1;
-                if (arr[5]==1) p.combination.kiker=6; //присвоєння кікеру найбільшого числа з очок які не входять в комбінацію
-                else if (arr[4]==1) p.combination.kiker=5;
-                else if (arr[3]==1) p.combination.kiker=4;
-                else if (arr[2]==1) p.combination.kiker=3;
-                else if (arr[1]==1) p.combination.kiker=2;
-                else if (arr[0]==1) p.combination.kiker=1;
+                int as=0;//потрібно для збереження інформації про значення трьох кікерів
+                int bs=0;
+                int cs=0;
+                for (int i=5; i >= 0; i--)//реверс цикл
+                {
+                    if (arr[i]==1 && as==0) as=i+1;
+                    if (arr[i]==1 && bs==0 && as!=i+1) bs=i+1;
+                    if (arr[i]==1 && cs==0 && as!=i+1 && bs!=i+1) cs=i+1;
+                }
+                p.combination.kiker=as;
+                p.combination.kiker2=bs;
+                p.combination.kiker3=cs;
                 find=true;
             }
     }
-    if (!find) //пошук найбільшого числа, якщо немає комбінацій
+    if (!find) //запис цифри якої нема
     {
-        if (arr[5]==1) p.combination.points1=6;
-        else if (arr[4]==1) p.combination.points1=5;
-        else if (arr[3]==1) p.combination.points1=4;
-        else if (arr[2]==1) p.combination.points1=3;
-        else if (arr[1]==1) p.combination.points1=2;
-        else if (arr[0]==1) p.combination.points1=1;
-
+        int as=0;
+        for (int i=0; i < 6; i++) if(!arr[i]) as=i+1;
+        p.combination.prob=0;
+        p.combination.points1=6-as;
     }
 }
 int compare_players(Player &p1, Player&p2)
 {
     bool find=false;
+    if(!find)
     if(p1.combination.prob == p2.combination.prob) find=false;
     else
     {
@@ -192,6 +205,20 @@ int compare_players(Player &p1, Player&p2)
     {
         find=true;
         if(p1.combination.kiker > p2.combination.kiker) return 1; else return -1;
+    }
+    if (!find)
+    if(p1.combination.kiker2 == p2.combination.kiker2) find=false;
+    else
+    {
+        find=true;
+        if(p1.combination.kiker2 > p2.combination.kiker2) return 1; else return -1;
+    }
+    if (!find)
+    if(p1.combination.kiker3 == p2.combination.kiker3) find=false;
+    else
+    {
+        find=true;
+        if(p1.combination.kiker3 > p2.combination.kiker3) return 1; else return -1;
     }
     if (!find) return 0;
 }
