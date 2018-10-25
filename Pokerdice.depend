@@ -6,21 +6,22 @@
 1540198473 d:\mm\projectpack\games\pokerdice\maxstring.h
 	<iostream>
 
-1540409096 source:d:\mm\projectpack\games\pokerdice\main.cpp
+1540462410 source:d:\mm\projectpack\games\pokerdice\main.cpp
 	<iostream>
 	"maxstring.h"
 	"table.h"
 
-1540409268 d:\mm\projectpack\games\pokerdice\player.h
+1540451643 d:\mm\projectpack\games\pokerdice\player.h
 	<iostream>
 	<ctime>
 	<cstdlib>
 
-1540406430 source:d:\mm\projectpack\games\pokerdice\player.cpp
+1540462260 source:d:\mm\projectpack\games\pokerdice\player.cpp
 	"player.h"
 
-1540404451 source:d:\mm\projectpack\games\pokerdice\table.cpp
+1540451643 source:d:\mm\projectpack\games\pokerdice\table.cpp
+	"table.h"
 
-1540408663 d:\mm\projectpack\games\pokerdice\table.h
+1540451643 d:\mm\projectpack\games\pokerdice\table.h
 	"player.h"
 

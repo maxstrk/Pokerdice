@@ -63,7 +63,10 @@ void Player::tell_combination(void)const
 }
 void help(void)
 {
-    std::cout << "Commands:\n'start'-start game\n'quit'- quit game\n'reroll'- to reroll\n";
+    std::cout << "Commands:\n'bet n'- bet some money\n'quit'- quit game\n'check,call,fold or raise'- to check,call,fold or raise\n";
+    std::cout << "to reroll dice you must first use command 'reroll',\n";
+    std::cout<< "then put number, how many dices you want to reroll,\n and then put numbers of positions of this dices\n";
+    std::cout << "For example: 'reroll 3 2 5 4' means reroll second fifth and fourth dice.\n";
 }
 void check_hand(Player & p)
 {
